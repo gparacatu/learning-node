@@ -1,0 +1,23 @@
+{
+  "name": "learning-node",
+  "version": "1.0.0",
+  "description": "Aprendendo Node",
+  "scripts": {
+    "start":"nodemon ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gparacatu/learning-node.git"
+  },
+  "author": "Guilherme Paracatu",
+  "bugs": {
+    "url": "https://github.com/gparacatu/learning-node/issues"
+  },
+  "homepage": "https://github.com/gparacatu/learning-node#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
