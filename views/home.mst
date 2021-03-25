@@ -1,0 +1,11 @@
+<h1>Seja bem vindo(a)</h1>
+<p>Lorem ipsum dolor sit amet, consectet</p>
+{{#mostrar}}
+<p>Nome: {{nome}} Idade: {{idade}}</p>
+{{/mostrar}}
+<ul> 
+    Ingredientes:
+    {{#ingredientes}}
+        <li>{{nome}} - {{quantidade}}</li>
+    {{/ingredientes}}
+</ul>
