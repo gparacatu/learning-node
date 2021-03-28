@@ -1,21 +1,11 @@
 const express = require("express");
+const homeController = require("../controllers/homeController");
+const userController = require("../controllers/userController");
+const postController = require("../controllers/postController");
 
 //Rotas
 const router = express.Router();
-router.get("/", (req, res) => {
-
-   let obj = {
-    nome: req.query.nome,
-    idade: req.query.idade,
-    mostrar: true,
-    ingredientes: [
-        {nome: "Contra-filé", quantidade: "1kg"},
-        {nome: "Ajino Sal", quantidade: "20g"},
-        {nome: "Molho Shoyo", quantidade: "50ml"}
-    ]
-    }   
-   res.render("home", obj);
-
-});
-
+router.get("/", homeController.index);
+router.get("/users/login", userController.login);
+router.get("/post/add", postController.add);
 module.exports = router; 
