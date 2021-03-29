@@ -18,6 +18,9 @@ app.use((req, res, next) => {
 //Configuração do express para POST
 app.use(express.json());
 
+//Configuração do enconding
+app.use(express.urlencoded({ extended: true }));
+
 //Rotas
 app.use("/", router);
 

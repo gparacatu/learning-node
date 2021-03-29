@@ -4,18 +4,19 @@
 <form method="POST">
     <label> 
         Título
-        <input type="text" name="titulo"/>
+        <input type="text" name="title"/>
     </label>
     <br/>
     <label> 
         Post
-        <textarea type="text" name="post"></textarea>
+        <textarea type="text" name="body"></textarea>
     </label>
     <br/>
     <label>
         Tags
-        <input type="text" name="tags" />
+        
     </label>
     <br/>
-    <button>Salvar</button>
+    <input type="submit" value="Salvar" />
+    
 </form>
