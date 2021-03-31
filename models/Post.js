@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
+const slug = require('slug');
 
 const postSchema = new mongoose.Schema({
     title:{
@@ -14,5 +15,15 @@ const postSchema = new mongoose.Schema({
     },
     tags: [String]
 });
+
+postSchema.pre("save", function(next) {
+
+    if (this.isModified("title"))
+    {
+        this.slug = slug( this.title, {lower:true} )
+    }
+    
+    next();
+}); 
 
 module.exports = mongoose.model("Post", postSchema, "posts");

@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+const Post = mongoose.model('Post');
+
 //Início do controlador home
 // exports.userInfoMiddleware = (req, res, next) => {
 
@@ -8,12 +11,17 @@
 //     next();
 // };
  
-exports.index = (req, res) => {
+exports.index = async (req, res) => {
 
-    let obj = {
-     //pageTitle: "Título de teste"
-     userInfo: req.userInfo 
-     }   
-    res.render("home", obj);
+    let responseJson = {
+     pageTitle: "HOME", 
+     posts:[]
+     }
+     
+    const posts = await Post.find();
+
+    responseJson.posts = posts;
+    
+    res.render("home", responseJson);
  
  };

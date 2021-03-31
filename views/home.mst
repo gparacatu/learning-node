@@ -1,3 +1,9 @@
 {{> Header}}
-<h1>Seja bem vindo(a) - Página Home: {{teste}}</h1>
-<p>Usuário logado: {{userInfo.name}} ID: {{userInfo.id}}</p>
+<h1>Seja bem vindo(a)</h1>
+
+{{#posts}}
+    <h3><a href="/post/{{slug}}">{{title}}</a></h3>
+    <p>{{body}}</p>
+    <a href="/post/{{slug}}/edit">[Editar]</a>
+    <hr/>
+{{/posts}}
