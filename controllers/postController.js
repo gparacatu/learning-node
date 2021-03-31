@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 const Post = mongoose.model('Post');
 const slug = require('slug');
 
+exports.view = async (req, res) => {
+    const post = await Post.findOne({slug:req.params.slug});
+
+    res.render("postView", {post}); 
+};
+
 exports.add = (req, res) => {
     res.render('postAdd');
 };
@@ -32,7 +38,7 @@ exports.edit = async (req, res) => {
     const post = await Post.findOne({ slug:req.params.slug });
 
     //chama o formulário de edição
-    res.render("postEdit", { post })
+    res.render("postEdit", { post });
 
 };
 
