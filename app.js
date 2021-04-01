@@ -13,6 +13,9 @@ const app = express();
 //Configuração do express para POST
 app.use(express.json());
 
+//Configurações da pasta public
+app.use(express.static(__dirname+"/public"));
+
 //Configuração do enconding
 app.use(express.urlencoded({ extended: true }));
 

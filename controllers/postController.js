@@ -45,9 +45,21 @@ exports.edit = async (req, res) => {
 exports.editAction = async (req, res) => {
     
     //gerando o slug novamente
-    req.body.slug = slug(req.body.title, { lower:true });
+    //req.body.slug = slug(req.body.title, { lower:true });
+        req.body.slug = slug( req.body.title, {lower:true} )
 
-    //Adicionar as tags
+        //Cria um regex para buscar qualquer tipo parecido de slug no banco
+        const slugRegex = new RegExp(`^(${req.body.slug})((-[0-9]{1,}$)?)$`, 'i');
+        
+        //faz uma busca no banco utilizando o regex e o construtor do model
+        const postsWithSlug = await Post.find({slug:slugRegex});
+
+        //verifica se retornou algum registro
+        if(postsWithSlug.length > 0){
+            req.body.slug = `${req.body.slug}-${postsWithSlug.length + 1}`;
+        }
+    
+    //Adicionar as tags 
     req.body.tags = req.body.tags.split(",").map(tag=>tag.trim());
      
     //Procura o item enviado
