@@ -16,6 +16,9 @@ exports.addAction = async (req, res) => {
 
     //Adicionar as tags
     req.body.tags = req.body.tags.split(",").map(tag=>tag.trim());
+    
+    //Adiciona o autor do Post
+    req.body.author = req.user._id;
 
     const post = new Post(req.body);
     
